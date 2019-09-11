@@ -1,0 +1,102 @@
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+<div class="imagen">
+    <div class="container mt-4 top">
+    	<h2>Hardware</h2>
+      <button type="submit" class="btn btn-primary btn-lg texto" data-toggle="modal" data-target="#exampleModal">
+          Crear
+       </button>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre Hardware</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let z of listaHardware">
+                <td>{{z.id}}</td>
+                <td>{{z.hardwareName}}</td>
+               
+                <td>
+                  <button type="submit" class="btn btn-success btn-sm" style="margin-right: 10px"
+                  data-toggle="modal" data-target="#exampleModalModificar" (click)="EditarHardware(z.id, z.hardwareName)">Actualizar
+                  </button>
+
+                  <button type="submit" class="btn btn-danger btn-sm" (click)="confirmEliminar( z.hardwareName)">
+                     Borrar
+                  </button>
+                </td>
+              </tr>
+              
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Modal Registrar-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <p-toast></p-toast>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content imagen2">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="align-content: center;color: black;font-size: 20px;">Registro de Hardware</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: black;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="HardwareFrom" style="color: white;">
+                <div class="form-group">
+                    <label for="name">Nombre Hardware:</label>
+                    <input type="text" class="form-control" id="nameuser" placeholder="Enter Hardware" formControlName="HardwareName">
+                </div>
+
+          </form>
+            
+      </div>
+
+      <pre style="color: black">
+            {{HardwareFrom.value | json}}
+        </pre>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="Guardar()" data-dismiss="modal">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Modificar-->
+<div class="modal fade" id="exampleModalModificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <p-toast></p-toast>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content imagen2">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="align-content: center;color: black;font-size: 20px;">Modificar Hardware</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: black;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="HardwareFrom" style="color: white;">
+                <div class="form-group">
+                    <label for="name">Nombre Hardware:</label>
+                    <input type="text" class="form-control" id="nameuser" placeholder="Enter Hardware" formControlName="HardwareName">
+                </div>
+
+          </form>
+            
+      </div>
+
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="ModificarHardware()" data-dismiss="modal">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

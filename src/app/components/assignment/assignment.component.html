@@ -1,0 +1,139 @@
+
+<div class="imagen">
+    <div class="container mt-4 top">
+    	<h1>Asignaciones</h1>
+    	<!--<button type="submit" class="btn btn-primary btn-lg texto margen" data-toggle="modal" data-target="#exampleModal">
+          Crear Asignacion
+       </button>-->
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre Usuario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Fecha de Registro</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let z of listaUsuario">
+                <td>{{z.id}}</td>
+                <td>{{z.userName}}</td>
+                <td>{{z.name}}</td>  
+                <td>{{z.lastName}}</td>
+                <td>{{z.age}}</td>
+                <td>{{z.lastSessionDateTime |date:"dd-MM-yyyy"}}</td>
+                <td>
+                  <button type="submit" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal2" (click)="showAssignment(z.id,z.name)">Mostrar
+                  </button>
+
+                 
+                </td>
+              </tr>
+              
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<!-- Modal 2-->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content imagen2">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="align-content: center;color: black;font-size: 20px;">Asignaciones de Hardware y Software</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: black;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <!--<form [formGroup]="UsuarioFrom" style="color: white;" >-->
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <select class="form-control" [(ngModel)]="assignment.UserID">  
+                        <option value="undefined">Selecione</option>  
+                        <option *ngFor="let z of listaUsuario"  
+                                [ngValue]="z.id">  
+                            {{z.name}}  
+                        </option>  
+                    </select> 
+                    <!--<input type="text" class="form-control" id="name" formControlName="Name" readonly="readonly" style="width: 50%">-->
+                     <button type="submit" class="btn btn-outline-primary" style="margin-top: 10px" (click)="mostrar = !mostrar">Nueva Asignacion
+                    </button>
+                </div>
+           <!--</form>-->
+
+           
+           <div *ngIf="mostrar">
+              <div class="form-group">
+                 <label for="name">Hardware</label>
+                 <select class="form-control" [(ngModel)]="assignment.HardwareID">  
+                    <option value="undefined">Selecione</option>  
+                    <option *ngFor="let y of listaHardware"  
+                            [ngValue]="y.id">  
+                         {{y.hardwareName}}  
+                    </option>
+                 </select>  
+              </div>
+
+              <div class="form-group">
+                 <label for="name">Software</label>
+                 <select class="form-control" [(ngModel)]="assignment.SoftwareID">  
+                    <option value="undefined">Selecione</option>  
+                    <option *ngFor="let x of listaSoftware"  
+                             [ngValue]="x.id">  
+                          {{x.softwareName}}  
+                    </option>  
+                 </select>  
+              </div>
+                  
+          </div>
+
+      
+
+           <div class="modal-footer">
+	       	 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+	        	<button type="button" class="btn btn-primary" (click)="GuardarAsignacion()">Guardar</button>
+	      	</div>
+
+          <table class="table">
+          		<thead>
+	              <tr>
+                 
+	                <th scope="col">Nombre Hardware</th>
+	                <th scope="col">Nombre Software</th>
+	                <th scope="col">Opciones</th>
+	              </tr>
+	            </thead>
+
+	            <tbody>
+	              <tr *ngFor="let a of listAsignaciones;let i = index">
+
+	                <td>{{a.hardwareName}}</td>
+	                <td>{{a.softwareName}}</td>
+	                
+	                <td>
+                     <button type="submit" class="btn btn-success btn-sm">Modificar
+                    </button>
+
+	                  <button type="submit" class="btn btn-danger btn-sm margen2" (click)="confirmEliminarAsig(id, a.hardwareName, a.softwareName)">Eliminar
+	                  </button>
+                   
+	                </td>
+	              </tr>
+	              
+	            </tbody>
+          </table>
+            
+      </div>
+     
+    </div>
+  </div>
+</div>

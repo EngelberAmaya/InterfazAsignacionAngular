@@ -1,0 +1,62 @@
+<p-toast></p-toast>
+
+
+<div class="imagen">
+    <!--<p-messages [(value)]="msgs"></p-messages>-->
+    
+
+    <div class="container" id="registration-form">
+        <div class="image"></div>
+        <div class="frm">
+            <h1 class="text-center">Usuario</h1>
+            <form [formGroup]="UsuarioFrom">
+                <div class="form-group">
+                    <label for="name">Nombre Usuario:</label>
+                    <input type="text" class="form-control" id="nameuser" placeholder="Enter Usuario" formControlName="UserName">
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Nombre" formControlName="Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="hard">Apellido:</label>
+                    <input type="text" class="form-control" id="ape" placeholder="Enter Apellido" formControlName="LastName">
+                </div>
+                <div class="form-group">
+                    <label for="soft">Edad:</label>
+                    <input type="text" class="form-control" id="soft" placeholder="Enter Edad" formControlName="Age">
+                </div>
+                <div class="form-group">
+                    <label for="fec">Fecha:</label>
+                    
+                    <input type="datetime" name="fechahora" step="1" min="1960-01-01T00:00Z" max="2019-12-31T12:00Z" value="2019-01-01T12:30" formControlName="LastSessionDateTime">
+
+                    <!--<input type="date" step="1" class="form-control" id="fec" formControlName="LASTSESSIONDATE">             -->
+                </div>
+
+
+            </form>
+        </div>
+
+        
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary btn-lg" style="margin-right: 10px" (click)="Guardar()">
+                 Registrar
+            </button>
+
+        </div>
+
+        <!--
+        <pre style="color: black">
+            {{UsuarioFrom.value | json}}
+        </pre> -->
+
+    </div>
+</div>
+
+
+
+
