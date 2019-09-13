@@ -68,19 +68,4 @@ export class FormularioComponent implements OnInit {
   }
 
 
-
-  
-
-
-/*
-  save(){
-  	let usuario: IUsuario = Object.assign({}, this.UsuarioFrom.value);
-  	console.table(usuario);
-  }*/
-/*
-  saveUsuario(){
-  	let usuario = Object.assign({}, this.UsuarioFrom.value);
-  	console.table(usuario);
-  }
-*/
 }

@@ -2,9 +2,7 @@
 <div class="imagen">
     <div class="container mt-4 top">
     	<h1>Asignaciones</h1>
-    	<!--<button type="submit" class="btn btn-primary btn-lg texto margen" data-toggle="modal" data-target="#exampleModal">
-          Crear Asignacion
-       </button>-->
+    	
         <table class="table">
             <thead>
               <tr>
@@ -54,7 +52,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <!--<form [formGroup]="UsuarioFrom" style="color: white;" >-->
+         
                 <div class="form-group">
                     <label>Usuario</label>
                     <select class="form-control" [(ngModel)]="assignment.UserID">  
@@ -64,11 +62,11 @@
                             {{z.name}}  
                         </option>  
                     </select> 
-                    <!--<input type="text" class="form-control" id="name" formControlName="Name" readonly="readonly" style="width: 50%">-->
+                    
                      <button type="submit" class="btn btn-outline-primary" style="margin-top: 10px" (click)="mostrar = !mostrar">Nueva Asignacion
                     </button>
                 </div>
-           <!--</form>-->
+          
 
            
            <div *ngIf="mostrar">

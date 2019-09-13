@@ -106,8 +106,7 @@ export class AssignmentComponent implements OnInit {
     this.asig.addAssignment(postAss, "assignment").then(
       result => {
         console.log(result);
-        //this.getAssignment();
-        //this.showAssignment(id,name);
+        
         this.messageService.add({severity:'success', summary: 'Registro Exitoso', detail:'de la Asignacion'});
         //this.showAssignment(id,name);
       },
@@ -157,20 +156,15 @@ export class AssignmentComponent implements OnInit {
 
 
   showAssignment(id,name) {
-    //console.log(this.assignment);
-    //this.asig.getModel("assignment/users/" + this.assignment.UserID).then(
+    
     this.asig.getModel("assignment/users/" +id).then(
-    //this.asig.getModel("assignment/users/" + id).then(
-
+    
       result => {
         console.log(result);
         this.listAsignaciones = result;
-        //this.changeLabelName(id, name);
-
-
-        //console.log(this.listaUsuario[id])
+        
         this.user = this.listaUsuario[id];
-        //this.assignment.UserID = this.user.id
+        
       },
       err => {
         console.log(err);

@@ -3,7 +3,7 @@ import { SofwareService } from '../../services/sofware.service';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 import {  MessageService } from 'primeng/api';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-//import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({

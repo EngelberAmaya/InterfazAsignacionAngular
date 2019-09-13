@@ -43,19 +43,18 @@ export class SofwareService {
 
 
   editSoftware(u, body, httpOptions = httpOptionsDefault){
-    //return this.http.put(url + 'users/PutUser/',{params:{'id':u}});
-    //return this.http.put(url + 'users/DeleteUser/'+ id);
+    
     return new Promise(resolve => {
             this.http.put(url +'software/' + u, body, httpOptions).subscribe((data: any) => {
                 console.log(data);
-               //this.verSoftware();
+               
                 resolve(data);
             }, (err: any) => {
                 console.log(err);
               
 
             })
-        })
+    })
   }
   
 }
